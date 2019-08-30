@@ -1,3 +1,3 @@
 const app = require('./app')
 
-app.listen(4000) //servidor ouvindo
+app.listen(process.env.PORT || 4000) //servidor ouvindo
