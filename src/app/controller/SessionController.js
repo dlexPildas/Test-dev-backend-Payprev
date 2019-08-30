@@ -21,10 +21,11 @@ module.exports = {
     //retorna o usuário logado na sessão
     return res.json({
       user: {
+        _id: userExist._id,
         email,
         senha
       },
-      token: jwt.sign({ email }, auth.secret, {
+      token: jwt.sign({ _id: userExist._id }, auth.secret, {
         expiresIn: auth.expiresIn
       })
     });
