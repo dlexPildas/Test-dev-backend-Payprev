@@ -18,11 +18,13 @@ const admin = require("./app/middlewares/admin");
 //rota para fazer o login e iniciar uma sessão
 routes.post("/login", SessionController.store);
 
-routes.use(authMiddleware); //todas as rotas abaixo passarão pela autenticação
+
 
 //rotas para cadastrar e retornar um usuário
 routes.post("/user", UserController.store);
-routes.get("/users", UserController.index);
+routes.get("/users", authMiddleware, UserController.index);
+
+routes.use(authMiddleware); //todas as rotas abaixo passarão pela autenticação
 
 //rotas para cadastrar e retornar um ou umas usuários git
 routes.post("/user/git", admin, UserGitController.store);

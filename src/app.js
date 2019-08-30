@@ -23,14 +23,16 @@ class App {
     this.server.use(routes);
   }
 
-  //Comunidação com o banco de dados
+  //Comunicação com o banco de dados
   mongoose() {
     mongoose
-      .connect("mongodb://localhost/dbPayprev", {
+      .connect("mongodb+srv://userPayprev:0123456789@cluster0-op7mq.mongodb.net/payprevdb?retryWrites=true&w=majority", {
         useNewUrlParser: true
       })
       .then(() => {
         console.log("conectado!");
+      }).catch(err => {
+        console.log(err)
       });
   }
 }
