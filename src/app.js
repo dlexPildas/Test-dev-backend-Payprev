@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const cors = require("cors")
 const routes = require("./routes");
 
 class App {
@@ -16,6 +16,7 @@ class App {
   //middlewares da aplicação
   middlewares() {
     this.server.use(express.json());
+    this.server.use(cors())
   }
 
   //carrega as rotas da api
