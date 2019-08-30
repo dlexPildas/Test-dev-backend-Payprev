@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+//cria uma collection para o usuário git
 const UserGitSchema = new Schema(
   {
     login: {

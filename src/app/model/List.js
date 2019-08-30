@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+//cria uma collection para a lista de usuários do git
 const ListSchema = new Schema({
   nome: {
     type: String,
