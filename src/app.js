@@ -27,7 +27,7 @@ class App {
   //Comunicação com o banco de dados
   mongoose() {
     mongoose
-      .connect("mongodb://localhost/payprev" /*mongodb+srv://userPayprev:0123456789@cluster0-op7mq.mongodb.net/payprevdb?retryWrites=true&w=majority",*/, {
+      .connect("mongodb+srv://userPayprev:0123456789@cluster0-op7mq.mongodb.net/payprevdb?retryWrites=true&w=majority", {
         useNewUrlParser: true
       })
       .then(() => {
