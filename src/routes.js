@@ -12,16 +12,15 @@ const UserGitListController = require("./app/controller/UserGitListController");
 const routes = new Router();
 
 //Middlewares
-const authMiddleware = require("./app/middlewares/auth");
-const admin = require("./app/middlewares/admin");
+const authMiddleware = require("./app/middlewares/auth"); //autenticação de usuário
+const admin = require("./app/middlewares/admin"); //verificar se o user é admin
+const validation = require("./app/middlewares/validation"); //verificar se email, cpf e senha são válidos
 
 //rota para fazer o login e iniciar uma sessão
-routes.post("/login", SessionController.store);
-
-
+routes.post("/login", validation, SessionController.store);
 
 //rotas para cadastrar e retornar um usuário
-routes.post("/user", UserController.store);
+routes.post("/user", validation, UserController.store);
 routes.get("/users", authMiddleware, UserController.index);
 
 routes.use(authMiddleware); //todas as rotas abaixo passarão pela autenticação

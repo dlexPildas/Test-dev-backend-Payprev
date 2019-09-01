@@ -1,5 +1,4 @@
 const User = require("../model/User");
-const UserGit = require("../model/UserGit");
 
 module.exports = {
   //Cadastrar novo usuário
@@ -13,11 +12,6 @@ module.exports = {
       return res.json("User already exist!");
     }
 
-    //verifica se a senha tem menos que 6 caracteres
-    if (senha.length <= 5) {
-      return res.json("Passoword does not valid");
-    }
-
     const user = await User.create({
       email,
       cpf,
@@ -29,13 +23,12 @@ module.exports = {
   },
 
   async index(req, res) {
-    const users = await User.find()
+    const users = await User.find();
 
-    if(!users){
-      return res.json("Users not found!")
+    if (!users) {
+      return res.json("Users not found!");
     }
 
-    return res.json(users)
-
+    return res.json(users);
   }
 };

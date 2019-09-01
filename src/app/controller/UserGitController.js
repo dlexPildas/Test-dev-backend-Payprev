@@ -19,11 +19,12 @@ module.exports = {
 
       //pega os dados necessários retornados pela api do github
       const { login, bio, location, html_url, name } = response.data;
-
+      
+      
       //cadastra o usuário do git
       const userGit = await UserGit.create({
         nome: name,
-        login: userName,
+        login: login,
         bio,
         localidade: location,
         html_url
